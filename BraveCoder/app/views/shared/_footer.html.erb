@@ -1,6 +1,11 @@
 <footer>
   <div class="container">
-    <span class="muted">&copy; 2017 <%= mail_to 'test@example.com', 'Contact us' %></span>
+    <p class="muted">&copy; 2017
+      <%= mail_to 'test@example.com' do %>
+        <i class="icon-envelop"></i>
+        Contact us
+      <% end %>
+    </p>
     <p><%= link_to 'Twitter', 'https://twitter.com/bodrovis', class: 'icon twitter' %></p>
   </div>
 </footer>
