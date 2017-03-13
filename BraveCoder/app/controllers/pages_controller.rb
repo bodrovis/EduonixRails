@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   end
 
   def about
+    sleep 5
   end
 end
