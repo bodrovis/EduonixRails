@@ -1,4 +1,9 @@
-<ul>
-  <li><%= link_to 'Home', root_path %></li>
-  <li><%= link_to 'About', about_path %></li>
-</ul>
+<% content_for :menu do %>
+  <nav class="navbar navbar-inverse bg-inverse">
+    <%= link_to 'BraveCoder', root_path, class: 'navbar-brand' %>
+    <ul class="navbar-nav mr-auto">
+      <%= nav_item 'home', root_path, page %>
+      <%= nav_item 'about', about_path, page %>
+    </ul>
+  </nav>
+<% end %>
