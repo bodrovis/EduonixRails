@@ -19,4 +19,12 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {minimum: 2}
   validates :email, presence: true, uniqueness: true, email: true
+
+  before_save :normalize_name, if: "name_changed?"
+
+  private
+
+  def normalize_name
+    self.name.gsub! /[^\w\s]/, ''
+  end
 end
