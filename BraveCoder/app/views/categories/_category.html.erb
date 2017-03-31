@@ -1,0 +1,11 @@
+<div class="card mb-4">
+  <div class="card-block">
+    <h4 class="card-title"><%= link_to category.title, category_path(category) %></h4>
+    <h6 class="card-subtitle mb-2 text-muted"><%= category.created_at %></h6>
+    <p class="card-text"><%= category.description %></p>
+
+    <%= link_to 'Edit', edit_category_path(category), class: 'card-link btn btn-secondary btn-sm' %>
+    <%= link_to 'Remove', category_path(category), class: 'card-link btn btn-danger btn-sm',
+                data: {method: :delete, confirm: 'Are you sure?'} %>
+  </div>
+</div>
