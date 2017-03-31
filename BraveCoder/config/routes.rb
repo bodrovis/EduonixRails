@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  get '/about', to: 'pages#about'
+  resources :categories
+
+  resources :pages, only: [:index] do
+    collection { get 'about' }
+  end
+
   root to: 'pages#index'
 end

@@ -14,6 +14,10 @@
 <%= yield :menu %>
 
 <div class="container">
+  <% flash.each do |key, message| %>
+    <%= content_tag(:div, class: "alert alert-#{key}") { message } %>
+  <% end %>
+
   <div class="mt-1">
     <h1><%= yield :page_title %></h1>
   </div>
