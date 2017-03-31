@@ -1,4 +1,4 @@
-<div class="card mb-4">
+<div class="card mb-4" id="<%= dom_id event %>">
   <div class="card-block">
     <h4 class="card-title"><%= link_to event.title, category_event_path(event.category, event) %></h4>
     <h6 class="card-subtitle mb-2 text-muted">
@@ -9,6 +9,6 @@
 
     <%= link_to 'Edit', edit_category_event_path(event.category, event), class: 'card-link btn btn-secondary btn-sm' %>
     <%= link_to 'Remove', category_event_path(event.category, event), class: 'card-link btn btn-danger btn-sm',
-                data: {method: :delete, confirm: 'Are you sure?'} %>
+                data: {method: :delete, confirm: 'Are you sure?', remote: true} %>
   </div>
 </div>

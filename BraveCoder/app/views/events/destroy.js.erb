@@ -1,0 +1,5 @@
+<% if @event.destroyed? %>
+$('#<%= dom_id @event %>').fadeOut();
+<% else %>
+alert("Cannot remove event <%= @event.title%>!");
+<% end %>

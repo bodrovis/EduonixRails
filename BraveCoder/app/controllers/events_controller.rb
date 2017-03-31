@@ -15,12 +15,23 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event.destroy
+    respond_to do |format|
+      format.html do
+        msg = @event.destroyed? ?
+            {success: "Event #{@event.title} removed!"} :
+            {danger: "Cannot remove #{@event.title} event..."}
+        flash.merge! msg
+        redirect_to category_path(@category)
+      end
+      format.js
+    end
     if @event.destroy
       flash[:success] = "Event #{@event.title} removed!"
     else
       flash[:danger] = "Cannot remove #{@event.title} event..."
     end
-    redirect_to category_path(@category)
+
   end
 
   def new
