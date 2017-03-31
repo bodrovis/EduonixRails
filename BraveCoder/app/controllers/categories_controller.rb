@@ -2,12 +2,10 @@ class CategoriesController < ApplicationController
   before_action :set_category!, only: [:edit, :update, :show, :destroy]
 
   def destroy
-    if @category.destroy
-      flash[:success] = "Category #{@category.title} removed!"
-    else
-      flash[:danger] = "Cannot remove category #{@category.title}!"
+    @category.destroy
+    respond_to do |format|
+      format.js
     end
-    redirect_to categories_path
   end
 
   def show
