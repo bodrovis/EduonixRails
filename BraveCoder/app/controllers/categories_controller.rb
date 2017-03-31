@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @events = @category.events.order(created_at: :desc)
   end
 
   def edit

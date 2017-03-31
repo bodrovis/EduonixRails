@@ -1,0 +1,13 @@
+<% title @event.title %>
+<% at_page %>
+
+<div class="btn-group">
+  <%= link_to 'Edit event', edit_category_event_path(@category, @event), class: 'btn btn-primary' %>
+  <%= link_to 'Back to category', category_path(@category), class: 'btn btn-secondary' %>
+</div>
+
+<p class="lead">
+  <%= @event.description %><br>
+  <strong>Starts at:</strong> <%= @event.starts_at %>
+  <strong>Ends at:</strong> <%= @event.ends_at %>
+</p>

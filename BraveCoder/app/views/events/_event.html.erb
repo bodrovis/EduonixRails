@@ -1,0 +1,14 @@
+<div class="card mb-4">
+  <div class="card-block">
+    <h4 class="card-title"><%= link_to event.title, category_event_path(event.category, event) %></h4>
+    <h6 class="card-subtitle mb-2 text-muted">
+      From <%= event.starts_at %>
+      to <%= event.ends_at %>
+    </h6>
+    <p class="card-text"><%= event.description %></p>
+
+    <%= link_to 'Edit', edit_category_event_path(event.category, event), class: 'card-link btn btn-secondary btn-sm' %>
+    <%= link_to 'Remove', category_event_path(event.category, event), class: 'card-link btn btn-danger btn-sm',
+                data: {method: :delete, confirm: 'Are you sure?'} %>
+  </div>
+</div>
