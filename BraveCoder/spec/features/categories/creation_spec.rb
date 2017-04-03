@@ -9,6 +9,6 @@ RSpec.feature 'Category creation' do
       click_button 'Submit!'
     end
 
-    expect_flash 'Category added!'
+    expect_success 'Category added!'
   end
 end

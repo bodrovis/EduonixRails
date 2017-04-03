@@ -10,6 +10,6 @@ RSpec.feature 'Category editing' do
       click_button 'Submit!'
     end
 
-    expect_flash 'Category New title updated!'
+    expect_success 'Category New title updated!'
   end
 end
