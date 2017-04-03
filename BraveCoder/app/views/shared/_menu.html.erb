@@ -5,10 +5,10 @@
       BraveCoder
     <% end %>
     <ul class="navbar-nav mr-auto">
-      <%= nav_item 'home', root_path, page %>
       <%= nav_item 'categories', categories_path, page %>
       <%= nav_item 'about', about_pages_path, page %>
       <%= nav_item 'register', new_user_path, page %>
+      <%= nav_item 'log in', new_session_path, page %>
     </ul>
   </nav>
 <% end %>
