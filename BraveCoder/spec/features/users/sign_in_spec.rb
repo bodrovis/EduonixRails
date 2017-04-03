@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.feature 'User sign in' do
   let(:user) { create(:user) }
 
+  before(:each) { visit new_session_path }
+
   scenario 'it should succeed with the proper email and a password' do
-    visit new_session_path
     within '#new_session' do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: 'secret'
@@ -15,7 +16,6 @@ RSpec.feature 'User sign in' do
   end
 
   scenario 'it should not succeed with an incorrect email' do
-    visit new_session_path
     within '#new_session' do
       fill_in 'Email', with: ''
       fill_in 'Password', with: 'secret'
@@ -26,7 +26,6 @@ RSpec.feature 'User sign in' do
   end
 
   scenario 'it should not succeed with an incorrect password' do
-    visit new_session_path
     within '#new_session' do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: '123'
