@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update_attributes(event_params)
+    if @event.update_attributes(update_event_params)
       flash[:success] = "Event #{@event.title} updated!"
       redirect_to category_event_path(@category, @event)
     else
@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = @category.events.build(event_params)
+    @event = @category.events.build(create_event_params)
     if @event.save
       flash[:success] = "Event #{@event.title} was added to the #{@category.title}!"
       redirect_to category_event_path(@category, @event)
@@ -53,7 +53,11 @@ class EventsController < ApplicationController
 
   private
 
-  def event_params
+  def create_event_params
+    params.require(:event).permit(:title, :description, :starts_at, :ends_at).merge(owner: current_user)
+  end
+
+  def update_event_params
     params.require(:event).permit(:title, :description, :starts_at, :ends_at)
   end
 

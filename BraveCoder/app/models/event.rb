@@ -10,14 +10,17 @@
 #  category_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  owner_id    :integer
 #
 # Indexes
 #
 #  index_events_on_category_id  (category_id)
+#  index_events_on_owner_id     (owner_id)
 #
 
 class Event < ApplicationRecord
   belongs_to :category
+  belongs_to :owner, class_name: 'User'
 
   has_many :enrollments
   has_many :users, through: :enrollments

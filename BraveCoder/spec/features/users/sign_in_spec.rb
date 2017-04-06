@@ -13,6 +13,11 @@ RSpec.feature 'User sign in' do
     end
 
     expect_success "Welcome back, #{user.name}!"
+
+    within '#main-menu' do
+      expect(page).not_to have_content('Sign In')
+      expect(page).not_to have_content('Register')
+    end
   end
 
   scenario 'it should not succeed with an incorrect email' do

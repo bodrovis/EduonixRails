@@ -15,6 +15,8 @@
 #
 
 class User < ApplicationRecord
+  has_many :owned_events, class_name: 'Event', foreign_key: :owner_id
+
   has_many :enrollments
   has_many :events, through: :enrollments
 

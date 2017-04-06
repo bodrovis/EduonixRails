@@ -2,12 +2,28 @@
 <% at_page %>
 
 <div class="btn-group">
-  <%= link_to 'Edit event', edit_category_event_path(@category, @event), class: 'btn btn-primary' %>
-  <%= link_to 'Back to category', category_path(@category), class: 'btn btn-secondary' %>
+  <%= link_to 'Edit', edit_category_event_path(@category, @event), class: 'btn btn-primary' %>
+  <%= link_to 'Remove', category_event_path(@category, @event), class: 'btn btn-danger',
+              data: {method: :delete, confirm: 'Are you sure?', remote: true} %>
 </div>
 
-<p class="lead">
-  <%= @event.description %><br>
-  <strong>Starts at:</strong> <%= @event.starts_at %>
-  <strong>Ends at:</strong> <%= @event.ends_at %>
-</p>
+<div class="card mt-4 mb-4">
+  <div class="card-block">
+    <p class="card-text"><%= @event.description %></p>
+  </div>
+
+  <div class="card-footer text-muted">
+    <dl>
+      <dt>Starts at</dt>
+      <dd><%= @event.starts_at %></dd>
+
+      <dt>Ends at</dt>
+      <dd><%= @event.ends_at %></dd>
+
+      <dt>Created by</dt>
+      <dd><%= @event.owner.name %></dd>
+    </dl>
+  </div>
+</div>
+
+<%= link_to 'Back to category', category_path(@category), class: 'btn btn-secondary btn-sm' %>
