@@ -1,19 +1,32 @@
 <% content_for :menu do %>
-  <nav class="navbar navbar-inverse bg-inverse" id="main-menu">
+  <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md" id="main-menu">
+    <button class="navbar-toggler navbar-toggler-right" type="button"
+            data-toggle="collapse" data-target="#main-menu-collapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
     <%= link_to root_path, class: 'navbar-brand' do %>
       <i class="icon-home"></i>
       BraveCoder
     <% end %>
-    <ul class="navbar-nav mr-auto">
-      <%= nav_item 'categories', categories_path, page %>
-      <%= nav_item 'about', about_pages_path, page %>
-      <% if user_signed_in? %>
-        <li class="navbar-text">Signed in as <strong><%= current_user.name %></strong></li>
-        <%= nav_item 'sign out', sessions_path, '', data: {method: :delete} %>
-      <% else %>
-        <%= nav_item 'register', new_user_path, page %>
-        <%= nav_item 'sign in', new_sessions_path, page %>
-      <% end %>
-    </ul>
+
+    <div class="collapse navbar-collapse" id="main-menu-collapse">
+      <ul class="navbar-nav mr-auto">
+        <%= nav_item 'categories', categories_path, page %>
+        <%= nav_item 'about', about_pages_path, page %>
+      </ul>
+
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <span class="nav-link">Signed in as <strong><%= current_user.name %></strong></span>
+          </li>
+          <%= nav_item 'sign out', sessions_path, '', data: {method: :delete} %>
+        <% else %>
+          <%= nav_item 'register', new_user_path, page %>
+          <%= nav_item 'sign in', new_sessions_path, page %>
+        <% end %>
+      </ul>
+    </div>
   </nav>
 <% end %>

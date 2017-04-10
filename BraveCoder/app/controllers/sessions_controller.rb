@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
+  before_action :require_no_authentication!, only: [:new, :create]
+
   include SessionsConcern
 
   def destroy
     sign_out
     flash[:success] = "See you!"
-    redirect_back fallback_location: root_path
+    redirect_to new_sessions_path
   end
 
   def new

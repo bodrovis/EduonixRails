@@ -18,8 +18,10 @@
       <dd><%= event.ends_at %></dd>
     </dl>
 
-    <%= link_to 'Edit', edit_category_event_path(event.category, event), class: 'card-link btn btn-secondary btn-sm' %>
-    <%= link_to 'Remove', category_event_path(event.category, event), class: 'card-link btn btn-danger btn-sm',
-                data: {method: :delete, confirm: 'Are you sure?', remote: true} %>
+    <% if event.owned_by? current_user %>
+      <%= link_to 'Edit', edit_category_event_path(event.category, event), class: 'card-link btn btn-secondary btn-sm' %>
+      <%= link_to 'Remove', category_event_path(event.category, event), class: 'card-link btn btn-danger btn-sm',
+                  data: {method: :delete, confirm: 'Are you sure?', remote: true} %>
+    <% end %>
   </div>
 </div>

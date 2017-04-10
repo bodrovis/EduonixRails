@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_category!
   before_action :set_event!, only: [:show, :edit, :update, :destroy]
+  before_action :check_owner!, only: [:edit, :update, :destroy]
 
   def edit
   end
@@ -59,6 +60,13 @@ class EventsController < ApplicationController
 
   def update_event_params
     params.require(:event).permit(:title, :description, :starts_at, :ends_at)
+  end
+
+  def check_owner!
+    unless @event.owned_by?(current_user)
+      flash[:danger] = 'You are not permitted to perform this action!'
+      redirect_back fallback_location: root_path
+    end
   end
 
   def set_category!
