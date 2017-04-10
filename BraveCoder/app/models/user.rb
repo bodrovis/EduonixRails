@@ -33,6 +33,10 @@ class User < ApplicationRecord
     user && user.authenticate(password)
   end
 
+  def enrolled_for?(event)
+    self.events.include? event
+  end
+
   private
 
   def normalize_name

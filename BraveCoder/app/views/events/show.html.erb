@@ -10,6 +10,14 @@
 <div class="card mt-4 mb-4">
   <div class="card-block">
     <p class="card-text"><%= @event.description %></p>
+
+    <% if current_user.enrolled_for? @event %>
+      <%= link_to 'Disenroll', enrollments_path(event_id: @event.id), class: 'btn btn-warning btn-lg mb-2',
+                  data: {method: :delete} %>
+    <% else %>
+      <%= button_to 'Enroll', enrollments_path, class: 'btn btn-info btn-lg mb-2',
+                    params: {event_id: @event.id} %>
+    <% end %>
   </div>
 
   <div class="card-footer text-muted">
@@ -27,3 +35,7 @@
 </div>
 
 <%= link_to 'Back to category', category_path(@category), class: 'btn btn-secondary btn-sm' %>
+
+<h2 class="mt-4">Enrolled users</h2>
+
+<%= render @event.users %>

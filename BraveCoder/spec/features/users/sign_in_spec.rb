@@ -3,40 +3,30 @@ require 'rails_helper'
 RSpec.feature 'User sign in' do
   let(:user) { create(:user) }
 
-  before(:each) { visit new_session_path }
+  context 'valid credentials' do
+    before(:each) { sign_in user: user }
 
-  scenario 'it should succeed with the proper email and a password' do
-    within '#new_session' do
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: 'secret'
-      click_button 'Log In!'
-    end
+    scenario 'it should succeed with the proper email and a password' do
+      expect_success "Welcome back, #{user.name}!"
 
-    expect_success "Welcome back, #{user.name}!"
-
-    within '#main-menu' do
-      expect(page).not_to have_content('Sign In')
-      expect(page).not_to have_content('Register')
+      within '#main-menu' do
+        expect(page).not_to have_content('Sign In')
+        expect(page).not_to have_content('Register')
+      end
     end
   end
 
-  scenario 'it should not succeed with an incorrect email' do
-    within '#new_session' do
-      fill_in 'Email', with: ''
-      fill_in 'Password', with: 'secret'
-      click_button 'Log In!'
+  context 'invalid credentials' do
+    scenario 'it should not succeed with an incorrect email' do
+      sign_in user: user, email: 'invalid'
+
+      expect_error "Incorrect email and/or password..."
     end
 
-    expect_error "Incorrect email and/or password..."
-  end
+    scenario 'it should not succeed with an incorrect password' do
+      sign_in user: user, password: 'invalid'
 
-  scenario 'it should not succeed with an incorrect password' do
-    within '#new_session' do
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: '123'
-      click_button 'Log In!'
+      expect_error "Incorrect email and/or password..."
     end
-
-    expect_error "Incorrect email and/or password..."
   end
 end

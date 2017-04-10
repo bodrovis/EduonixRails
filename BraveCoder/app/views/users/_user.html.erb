@@ -1,0 +1,12 @@
+<div class="card mt-4">
+  <div class="card-block">
+    <div class="row">
+      <div class="col-md-2">
+        <%= gravatar_for user: user, opts: {class: 'rounded-circle img-fluid mx-auto d-block'} %>
+      </div>
+      <div class="col-md-10">
+        <h4 class="card-title text-md-left text-center"><%= user.name %></h4>
+      </div>
+    </div>
+  </div>
+</div>

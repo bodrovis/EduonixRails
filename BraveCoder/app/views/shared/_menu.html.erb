@@ -7,9 +7,12 @@
     <ul class="navbar-nav mr-auto">
       <%= nav_item 'categories', categories_path, page %>
       <%= nav_item 'about', about_pages_path, page %>
-      <% unless user_signed_in? %>
+      <% if user_signed_in? %>
+        <li class="navbar-text">Signed in as <strong><%= current_user.name %></strong></li>
+        <%= nav_item 'sign out', sessions_path, '', data: {method: :delete} %>
+      <% else %>
         <%= nav_item 'register', new_user_path, page %>
-        <%= nav_item 'log in', new_session_path, page %>
+        <%= nav_item 'sign in', new_sessions_path, page %>
       <% end %>
     </ul>
   </nav>

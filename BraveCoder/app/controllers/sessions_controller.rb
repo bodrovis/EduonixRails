@@ -1,6 +1,12 @@
 class SessionsController < ApplicationController
   include SessionsConcern
 
+  def destroy
+    sign_out
+    flash[:success] = "See you!"
+    redirect_back fallback_location: root_path
+  end
+
   def new
   end
 

@@ -4,7 +4,7 @@ RSpec.feature 'User registration' do
   before(:each) { visit new_user_path }
 
   context 'with invalid data' do
-    scenario 'should succeed' do
+    scenario 'should not succeed' do
       within '#new_user' do
         fill_in 'Name', with: 'J'
         fill_in 'Email', with: ''
