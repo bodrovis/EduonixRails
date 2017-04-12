@@ -21,5 +21,5 @@ class Enrollment < ApplicationRecord
 
   validates :user, uniqueness: {scope: :event}
 
-  after_create_commit -> { EnrollmentsMailer.notify(self.event, self.user).deliver_now }
+  after_create_commit -> { EnrollmentsJob.perform_later(self) }
 end
