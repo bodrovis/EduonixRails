@@ -30,6 +30,8 @@ class Event < ApplicationRecord
   validates :ends_at, presence: true
   validate :ends_at_greater_than_starts_at
 
+  after_create_commit -> { EventsMailer.notify_admins(self).deliver_now }
+
   def owned_by?(user)
     self.owner == user
   end

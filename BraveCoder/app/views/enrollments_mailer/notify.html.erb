@@ -1,0 +1,7 @@
+<p>Hello, <%= @event.owner.name %>!</p>
+
+<p>A user named <%= @user.name %> has enrolled for your event
+  <strong><%= @event.title %></strong>!</p>
+
+<p><%= link_to 'See all enrollments here',
+               category_event_url(@event.category, @event) %></p>

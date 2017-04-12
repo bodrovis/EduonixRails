@@ -1,0 +1,7 @@
+<p>Hello!</p>
+
+<p>A new event <strong><%= @event.title %></strong>
+  was created at <%= @event.created_at %>!</p>
+
+<p><%= link_to 'See the event',
+               category_event_url(@event.category, @event) %></p>

@@ -12,6 +12,7 @@
 #
 # Indexes
 #
+#  index_users_on_admin  (admin)
 #  index_users_on_email  (email) UNIQUE
 #
 
@@ -26,6 +27,8 @@ class User < ApplicationRecord
 
   before_save :normalize_name, if: "name_changed?"
   before_create :normalize_email
+
+  scope :admins, -> { where(admin: true) }
 
   has_secure_password
 
