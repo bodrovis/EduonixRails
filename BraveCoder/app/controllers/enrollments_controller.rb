@@ -5,13 +5,13 @@ class EnrollmentsController < ApplicationController
 
   def create
     @event.users << current_user
-    flash[:success] = "You have enrolled for the #{@event.title}!"
+    flash[:success] = t('.success', title: @event.title)
     redirect_back fallback_location: category_event_path(@event.category, @event)
   end
 
   def destroy
     @event.users.destroy current_user
-    flash[:success] = "You have disenrolled from the #{@event.title}!"
+    flash[:success] = t('.success', title: @event.title)
     redirect_back fallback_location: category_event_path(@event.category, @event)
   end
 
@@ -19,14 +19,14 @@ class EnrollmentsController < ApplicationController
 
   def check_enrolled!
     unless @event.participant? current_user
-      flash[:danger] = "You are not enrolled for this event!"
+      flash[:danger] = t('enrollments.flash.not_enrolled')
       redirect_back fallback_location: root_path
     end
   end
 
   def check_not_enrolled!
     if @event.participant? current_user
-      flash[:danger] = "You are already enrolled for this event!"
+      flash[:danger] = t('enrollments.flash.already_enrolled')
       redirect_back fallback_location: root_path
     end
   end

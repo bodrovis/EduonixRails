@@ -3,15 +3,15 @@
 
 <div class="btn-group">
   <% if current_user.admin? %>
-    <%= link_to 'Edit', edit_category_path(@category), class: 'btn btn-primary' %>
-    <%= link_to 'Remove', category_path(@category), class: 'card-link btn btn-danger',
+    <%= link_to t('common.buttons.edit'), edit_category_path(@category), class: 'btn btn-primary' %>
+    <%= link_to t('common.buttons.remove'), category_path(@category), class: 'card-link btn btn-danger',
                 data: {method: :delete, confirm: 'Are you sure?', remote: true} %>
   <% end %>
-  <%= link_to 'Add Event Here', new_category_event_path(@category), class: 'btn btn-info' %>
+  <%= link_to t('.add_event'), new_category_event_path(@category), class: 'btn btn-info' %>
 </div>
 
 <p class="lead mt-4"><%= @category.description %></p>
 
-<h2>Events</h2>
+<h2><%= t '.events' %></h2>
 
 <%= render @events %>

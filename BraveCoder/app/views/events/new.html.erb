@@ -1,4 +1,4 @@
-<% title "Add event to the #{@category.title}" %>
+<% title t('.title', category: @category.title) %>
 <% at_page %>
 
 <%= render 'form', event: @event, category: @category %>

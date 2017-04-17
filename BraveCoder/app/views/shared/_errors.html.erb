@@ -1,6 +1,6 @@
 <% if object.errors.any? %>
   <div class="alert alert-danger">
-    <strong><%= pluralize object.errors.count, 'error' %> found:</strong>
+    <strong><%= "#{t('common.errors', count: object.errors.count)} #{t('common.found')}:" %></strong>
     <ul>
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

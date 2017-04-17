@@ -43,9 +43,9 @@ class Event < ApplicationRecord
   private
 
   def ends_at_greater_than_starts_at
-    if self.starts_at.present? && self.ends_at.present? && self.starts_at > self.ends_at
-      self.errors.add(:starts_at, 'should be earlier than the ending time')
-      self.errors.add(:ends_at, 'should be later than the starting time')
+    if self.starts_at.present? && self.ends_at.present? && self.starts_at >= self.ends_at
+      self.errors.add(:starts_at, :earlier_than_ends_at)
+      self.errors.add(:ends_at, :later_than_starts_at)
     end
   end
 end

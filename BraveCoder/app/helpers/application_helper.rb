@@ -3,12 +3,12 @@ module ApplicationHelper
     locales = I18n.available_locales.dup
 
     content_tag :li, class: 'nav-item dropdown' do
-      link_to(t(locales.delete(I18n.locale), scope: :locales), '#',
+      link_to(t(locales.delete(I18n.locale), scope: [:common, :locales]), '#',
               class: 'nav-link dropdown-toggle',
               data: {toggle: 'dropdown'}) +
           content_tag(:div, class: 'dropdown-menu') do
             locales.inject('') do |string, locale|
-              string + link_to(t(locale, scope: :locales),
+              string + link_to(t(locale, scope: [:common, :locales]),
                                root_path(locale: locale, return_to: request.path),
                                class: 'dropdown-item')
             end.html_safe

@@ -1,4 +1,119 @@
 ru:
-  locales:
-    en: 'Английский'
-    ru: 'Русский'
+  activerecord:
+    errors:
+      models:
+        event:
+          attributes:
+            starts_at:
+              earlier_than_ends_at: 'должно быть раньше, чем окончание'
+            ends_at:
+              later_than_starts_at: 'должно быть позже, чем начало'
+    models:
+      category: 'Категория'
+      user: 'Пользователь'
+      event: 'Событие'
+    attributes:
+      category:
+        title: 'Название'
+        description: 'Описание'
+      event:
+        title: 'Название'
+        description: 'Описание'
+        starts_at: 'Начало'
+        ends_at: 'Окончание'
+        owner: 'Владелец'
+      user:
+        name: 'Имя'
+        email: 'E-mail'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+  helpers:
+    submit:
+      create: 'Создать'
+      submit: 'Сохранить'
+      update: 'Сохранить'
+  common:
+    buttons:
+      edit: 'Редактировать'
+      remove: 'Удалить'
+    dialog:
+      you_sure: 'Вы уверены?'
+    flash:
+      not_permitted: 'У вас нет прав на выполнение этого действия!'
+      cannot_find_record: 'Не удалось найти запись...'
+    errors:
+      one: '1 ошибка'
+      few: '%{count} ошибки'
+      many: '%{count} ошибок'
+      other: '%{count} ошибок'
+    found: 'найдено'
+    locales:
+      en: 'Английский'
+      ru: 'Русский'
+  pages:
+    about:
+      title: 'О сайте'
+      menu_link: 'О сайте'
+  users:
+    new:
+      title: 'Регистрация'
+      menu_link: 'Регистрация'
+      register: 'Зарегистрироваться!'
+    create:
+      success: 'Добро пожаловать, %{name}!'
+  sessions:
+    new:
+      title: 'Войти'
+      menu_link: 'Войти'
+    create:
+      success: 'С возвращением, %{name}!'
+      failure: 'Неверный e-mail или пароль...'
+    destroy:
+      success: 'До новых встреч!'
+      menu_link: 'Выйти'
+  events:
+    badges:
+      enrolled: 'записан'
+      organizer: 'Организатор'
+    show:
+      back: 'Вернуться в категорию'
+      enrolled: 'Участники'
+      enroll: 'Записаться'
+      disenroll: 'Отписаться'
+    edit:
+      title: 'Редактировать событие в категории %{category}'
+    new:
+      title: 'Добавить событие в категорию %{category}'
+    update:
+      success: 'Событие %(title} обновлено!'
+    destroy:
+      success: 'Событие %{title} удалено!'
+      failure: 'Не удалось удалить событие %{title}...'
+    create:
+      success: 'Событие %{event} добавлено в %{category}!'
+  enrollments:
+    flash:
+      not_enrolled: 'Вы не записаны на это событие!'
+      already_enrolled: 'Вы уже записались на это событие!'
+    create:
+      success: 'Вы записались на событие %{title}!'
+    destroy:
+      success: 'Вы отписались от события %{title}!'
+  categories:
+    edit:
+      title: 'Редактировать категорию'
+      menu_link: 'Редактировать категорию'
+    show:
+      events: 'События'
+      add_event: 'Добавить событие'
+    new:
+      title: 'Добавить категорию'
+      menu_link: 'Добавить категорию'
+    update:
+      success: 'Категория %{title} обновлена!'
+    create:
+      success: 'Категория %{title} добавлена!'
+    index:
+      title: 'Категории'
+      menu_link: 'Категории'
+      add_category: 'Добавить категорию'

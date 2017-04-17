@@ -20,6 +20,114 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  locales:
-    en: 'English'
-    ru: 'Russian'
+  activerecord:
+    errors:
+      models:
+        event:
+          attributes:
+            starts_at:
+              earlier_than_ends_at: 'should be earlier than the ending time'
+            ends_at:
+              later_than_starts_at: 'should be later than the starting time'
+    models:
+      category: 'Category'
+      user: 'User'
+      event: 'Event'
+    attributes:
+      category:
+        title: 'Title'
+        description: 'Description'
+      event:
+        title: 'Title'
+        description: 'Description'
+        starts_at: 'Starts at'
+        ends_at: 'Ends at'
+        owner: 'Owner'
+      user:
+        name: 'Name'
+        email: 'E-mail'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+  common:
+    buttons:
+      edit: 'Edit'
+      remove: 'Remove'
+    dialog:
+      you_sure: 'Are you sure?'
+    flash:
+      not_permitted: 'You are not permitted to perform this action!'
+      cannot_find_record: 'Cannot find this record...'
+    errors:
+      one: '1 error'
+      other: '%{count} errors'
+    found: 'found'
+    locales:
+      en: 'English'
+      ru: 'Russian'
+  pages:
+    about:
+      title: 'About'
+      menu_link: 'About'
+  users:
+    new:
+      title: 'Register'
+      menu_link: 'Register'
+      register: 'Register!'
+    create:
+      success: 'Welcome, %{name}!'
+  sessions:
+    new:
+      title: 'Sign In'
+      menu_link: 'Sign In'
+    create:
+      success: 'Welcome back, %{name}!'
+      failure: 'Incorrect email and/or password...'
+    destroy:
+      success: 'See you!'
+      menu_link: 'Sign Out'
+  events:
+    badges:
+      enrolled: 'Enrolled'
+      organizer: 'Organizer'
+    show:
+      back: 'Back to category'
+      enrolled: 'Enrolled users'
+      enroll: 'Enroll'
+      disenroll: 'Disenroll'
+    edit:
+      title: 'Edit event at the %{category}'
+    new:
+      title: 'Add event to the %{category}'
+    update:
+      success: 'Event %(title} updated!'
+    destroy:
+      success: 'Event %{title} removed!'
+      failure: 'Cannot remove %{title} event...'
+    create:
+      success: 'Event %{event} was added to the %{category}!'
+  enrollments:
+    flash:
+      not_enrolled: 'You are not enrolled for this event!'
+      already_enrolled: 'You are already enrolled for this event!'
+    create:
+      success: 'You have enrolled for the %{title}!'
+    destroy:
+      success: 'You have disenrolled from the %{title}!'
+  categories:
+    edit:
+      title: 'Edit category'
+      menu_link: 'Edit category'
+    show:
+      events: 'Events'
+      add_event: 'Add event'
+    new:
+      title: 'Add Category'
+      menu_link: 'Add Category'
+    update:
+      success: 'Category %{title} updated!'
+    create:
+      success: 'Category %{title} added!'
+    index:
+      title: 'Categories'
+      menu_link: 'Categories'
+      add_category: 'Add category'

@@ -12,8 +12,8 @@
 
     <div class="collapse navbar-collapse" id="main-menu-collapse">
       <ul class="navbar-nav mr-auto">
-        <%= nav_item 'categories', categories_path, page %>
-        <%= nav_item 'about', about_pages_path, page %>
+        <%= nav_item t('categories.index.menu_link'), categories_path, page %>
+        <%= nav_item t('pages.about.menu_link'), about_pages_path, page %>
       </ul>
 
       <ul class="navbar-nav">
@@ -21,12 +21,12 @@
 
         <% if user_signed_in? %>
           <li class="nav-item">
-            <span class="nav-link">Signed in as <strong><%= current_user.name %></strong></span>
+            <span class="nav-link"><strong><%= current_user.name %></strong></span>
           </li>
-          <%= nav_item 'sign out', sessions_path, '', data: {method: :delete} %>
+          <%= nav_item t('sessions.destroy.menu_link'), sessions_path, '', data: {method: :delete} %>
         <% else %>
-          <%= nav_item 'register', new_user_path, page %>
-          <%= nav_item 'sign in', new_sessions_path, page %>
+          <%= nav_item t('users.new.menu_link'), new_user_path, page %>
+          <%= nav_item t('sessions.new.menu_link'), new_sessions_path, page %>
         <% end %>
       </ul>
     </div>

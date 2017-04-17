@@ -1,5 +1,5 @@
-<% title 'Sign In' %>
-<% at_page('sign in') %>
+<% title t('.title') %>
+<% at_page t('.menu_link') %>
 
 <%= form_for :session, url: sessions_path, html: {id: 'new_session'} do |f| %>
   <div class="form-group row">
@@ -22,7 +22,7 @@
 
   <div class="form-group row">
     <div class="offset-2 col-10">
-      <%= f.submit 'Sign In!', class: 'btn btn-primary btn-lg' %>
+      <%= f.submit t('.title'), class: 'btn btn-primary btn-lg' %>
     </div>
   </div>
 <% end %>

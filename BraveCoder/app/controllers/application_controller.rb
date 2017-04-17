@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include LocalesConcern
 
   rescue_from ActiveRecord::RecordNotFound do
-    flash[:danger] = 'Cannot find this record...'
+    flash[:danger] = t 'common.flash.cannot_find_record'
     redirect_to root_path
   end
 end

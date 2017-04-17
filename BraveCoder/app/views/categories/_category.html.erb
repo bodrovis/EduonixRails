@@ -5,8 +5,8 @@
     <p class="card-text"><%= category.description %></p>
 
     <% if current_user.admin? %>
-      <%= link_to 'Edit', edit_category_path(category), class: 'card-link btn btn-secondary btn-sm' %>
-      <%= link_to 'Remove', category_path(category), class: 'card-link btn btn-danger btn-sm',
+      <%= link_to t('common.buttons.edit'), edit_category_path(category), class: 'card-link btn btn-secondary btn-sm' %>
+      <%= link_to t('common.buttons.remove'), category_path(category), class: 'card-link btn btn-danger btn-sm',
                   data: {method: :delete, confirm: 'Are you sure?', remote: true} %>
     <% end %>
   </div>

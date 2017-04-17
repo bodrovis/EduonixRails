@@ -3,9 +3,9 @@
 
 <% if @event.owned_by? current_user %>
   <div class="btn-group">
-    <%= link_to 'Edit', edit_category_event_path(@category, @event), class: 'btn btn-primary' %>
-    <%= link_to 'Remove', category_event_path(@category, @event), class: 'btn btn-danger',
-                data: {method: :delete, confirm: 'Are you sure?', remote: true} %>
+    <%= link_to t('common.buttons.edit'), edit_category_event_path(@category, @event), class: 'btn btn-primary' %>
+    <%= link_to t('common.buttons.remove'), category_event_path(@category, @event), class: 'btn btn-danger',
+                data: {method: :delete, confirm: t('common.dialog.you_sure'), remote: true} %>
   </div>
 <% end %>
 
@@ -14,30 +14,26 @@
     <p class="card-text"><%= @event.description %></p>
 
     <% if current_user.enrolled_for? @event %>
-      <%= link_to 'Disenroll', enrollments_path(event_id: @event.id), class: 'btn btn-warning btn-lg mb-2',
+      <%= link_to t('.disenroll'), enrollments_path(event_id: @event.id), class: 'btn btn-warning btn-lg mb-2',
                   data: {method: :delete} %>
     <% else %>
-      <%= button_to 'Enroll', enrollments_path, class: 'btn btn-info btn-lg mb-2',
+      <%= button_to t('.enroll'), enrollments_path, class: 'btn btn-info btn-lg mb-2',
                     params: {event_id: @event.id} %>
     <% end %>
   </div>
 
   <div class="card-footer text-muted">
     <dl>
-      <dt>Starts at</dt>
-      <dd><%= @event.starts_at %></dd>
+      <dd><%= @event.starts_at %> &mdash; <%= @event.ends_at %></dd>
 
-      <dt>Ends at</dt>
-      <dd><%= @event.ends_at %></dd>
-
-      <dt>Created by</dt>
+      <dt><%= t('events.badges.organizer') %></dt>
       <dd><%= @event.owner.name %></dd>
     </dl>
   </div>
 </div>
 
-<%= link_to 'Back to category', category_path(@category), class: 'btn btn-secondary btn-sm' %>
+<%= link_to t('.back'), category_path(@category), class: 'btn btn-secondary btn-sm' %>
 
-<h2 class="mt-4">Enrolled users</h2>
+<h2 class="mt-4"><%= t('.enrolled') %></h2>
 
 <%= render @event.users %>

@@ -1,6 +1,6 @@
-<% title 'Categories' %>
-<% at_page('categories') %>
+<% title t('.title') %>
+<% at_page t('.menu_link') %>
 
-<%= link_to 'Add category', new_category_path, class: 'btn btn-primary btn-lg mt-2 mb-4' %>
+<%= link_to t('.add_category'), new_category_path, class: 'btn btn-primary btn-lg mt-2 mb-4' %>
 
 <%= render @categories %>
