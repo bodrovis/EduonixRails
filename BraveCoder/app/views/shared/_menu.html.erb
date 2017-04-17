@@ -17,6 +17,8 @@
       </ul>
 
       <ul class="navbar-nav">
+        <%= choose_locale_dropdown %>
+
         <% if user_signed_in? %>
           <li class="nav-item">
             <span class="nav-link">Signed in as <strong><%= current_user.name %></strong></span>

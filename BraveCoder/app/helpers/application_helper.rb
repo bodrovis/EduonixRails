@@ -1,4 +1,21 @@
 module ApplicationHelper
+  def choose_locale_dropdown
+    locales = I18n.available_locales.dup
+
+    content_tag :li, class: 'nav-item dropdown' do
+      link_to(t(locales.delete(I18n.locale), scope: :locales), '#',
+              class: 'nav-link dropdown-toggle',
+              data: {toggle: 'dropdown'}) +
+          content_tag(:div, class: 'dropdown-menu') do
+            locales.inject('') do |string, locale|
+              string + link_to(t(locale, scope: :locales),
+                               root_path(locale: locale, return_to: request.path),
+                               class: 'dropdown-item')
+            end.html_safe
+          end
+    end
+  end
+
   def title(content)
     content_for(:page_title) {content}
   end
