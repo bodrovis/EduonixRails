@@ -49,11 +49,11 @@ class EventsController < ApplicationController
   private
 
   def create_event_params
-    params.require(:event).permit(:title, :description, :starts_at, :ends_at).merge(owner: current_user)
+    params.require(:event).permit(:title, :description, :starts_at, :ends_at, :price).merge(owner: current_user)
   end
 
   def update_event_params
-    params.require(:event).permit(:title, :description, :starts_at, :ends_at)
+    params.require(:event).permit(:title, :description, :starts_at, :ends_at, :price)
   end
 
   def check_owner!

@@ -22,6 +22,7 @@ ru:
         starts_at: 'Начало'
         ends_at: 'Окончание'
         owner: 'Владелец'
+        price: 'Цена'
       user:
         name: 'Имя'
         email: 'E-mail'
@@ -32,6 +33,9 @@ ru:
       create: 'Создать'
       submit: 'Сохранить'
       update: 'Сохранить'
+  time:
+    formats:
+      medium: '%-d %b %H:%M'
   common:
     buttons:
       edit: 'Редактировать'
@@ -76,6 +80,7 @@ ru:
       enrolled: 'записан'
       organizer: 'Организатор'
     show:
+      price: 'Цена'
       back: 'Вернуться в категорию'
       enrolled: 'Участники'
       enroll: 'Записаться'
@@ -85,13 +90,15 @@ ru:
     new:
       title: 'Добавить событие в категорию %{category}'
     update:
-      success: 'Событие %(title} обновлено!'
+      success: 'Событие %{title} обновлено!'
     destroy:
       success: 'Событие %{title} удалено!'
       failure: 'Не удалось удалить событие %{title}...'
     create:
       success: 'Событие %{event} добавлено в %{category}!'
   enrollments:
+    common:
+      enrolled_ago: 'Записался %{time} назад'
     flash:
       not_enrolled: 'Вы не записаны на это событие!'
       already_enrolled: 'Вы уже записались на это событие!'

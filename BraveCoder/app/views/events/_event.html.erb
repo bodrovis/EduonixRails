@@ -12,7 +12,7 @@
     <p class="card-text lead"><%= event.description %></p>
 
     <dl>
-      <dd><%= event.starts_at %> &mdash; <%= event.ends_at %></dd>
+      <dd><%= l event.starts_at, format: :long %> &mdash; <%= l event.ends_at, format: :long %></dd>
     </dl>
 
     <% if event.owned_by? current_user %>

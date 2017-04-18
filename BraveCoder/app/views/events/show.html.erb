@@ -24,7 +24,10 @@
 
   <div class="card-footer text-muted">
     <dl>
-      <dd><%= @event.starts_at %> &mdash; <%= @event.ends_at %></dd>
+      <dt><%= t '.price' %></dt>
+      <dd><%= number_to_currency @event.price %></dd>
+
+      <dd><%= l @event.starts_at, format: :medium %> &mdash; <%= l @event.ends_at, format: :medium %></dd>
 
       <dt><%= t('events.badges.organizer') %></dt>
       <dd><%= @event.owner.name %></dd>
@@ -36,4 +39,4 @@
 
 <h2 class="mt-4"><%= t('.enrolled') %></h2>
 
-<%= render @event.users %>
+<%= render partial: 'user', collection: @event.users, as: :user, locals: {event: @event} %>

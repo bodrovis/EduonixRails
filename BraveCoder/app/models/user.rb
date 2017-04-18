@@ -41,6 +41,10 @@ class User < ApplicationRecord
     self.events.include? event
   end
 
+  def enrollment_at(event)
+    self.enrollments.find_by event: event
+  end
+
   private
 
   def normalize_name

@@ -43,11 +43,15 @@ en:
         starts_at: 'Starts at'
         ends_at: 'Ends at'
         owner: 'Owner'
+        price: 'Price'
       user:
         name: 'Name'
         email: 'E-mail'
         password: 'Password'
         password_confirmation: 'Password confirmation'
+  time:
+    formats:
+      medium: '%-d %b %H:%M'
   common:
     buttons:
       edit: 'Edit'
@@ -90,6 +94,7 @@ en:
       enrolled: 'Enrolled'
       organizer: 'Organizer'
     show:
+      price: 'Price'
       back: 'Back to category'
       enrolled: 'Enrolled users'
       enroll: 'Enroll'
@@ -99,13 +104,15 @@ en:
     new:
       title: 'Add event to the %{category}'
     update:
-      success: 'Event %(title} updated!'
+      success: 'Event %{title} updated!'
     destroy:
       success: 'Event %{title} removed!'
       failure: 'Cannot remove %{title} event...'
     create:
       success: 'Event %{event} was added to the %{category}!'
   enrollments:
+    common:
+      enrolled_ago: 'Enrolled %{time} ago'
     flash:
       not_enrolled: 'You are not enrolled for this event!'
       already_enrolled: 'You are already enrolled for this event!'
