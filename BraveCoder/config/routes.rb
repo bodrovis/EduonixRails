@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
     resource :sessions, only: [:new, :create, :destroy]
 
-    resources :users
+    resources :users, only: [:new, :create]
 
     resources :categories do
       resources :events, except: [:index]

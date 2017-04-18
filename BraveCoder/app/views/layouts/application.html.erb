@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
 <head>
   <meta charset="utf-8">
   <title>BraveCoder</title>
@@ -9,7 +9,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
+<body data-locale="<%= I18n.locale %>">
 
 <%= yield :menu %>
 

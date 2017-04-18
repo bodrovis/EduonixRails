@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @events = @category.events.order(created_at: :desc)
+    @events = @category.events.includes(:category, :users, :owner).order(created_at: :desc)
   end
 
   def edit

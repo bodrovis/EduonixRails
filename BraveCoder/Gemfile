@@ -37,6 +37,8 @@ gem 'sidekiq'
 
 gem 'rails-i18n'
 
+gem 'momentjs-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -51,6 +53,10 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'lol_dba'
+  gem 'rails_best_practices'
+  gem 'brakeman', require: false
+  gem 'bullet'
 end
 
 group :test do

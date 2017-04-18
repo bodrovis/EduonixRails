@@ -98,7 +98,8 @@ ru:
       success: 'Событие %{event} добавлено в %{category}!'
   enrollments:
     common:
-      enrolled_ago: 'Записался %{time} назад'
+      enrolled_ago:
+        html: 'Записался <time datetime="%{time}">%{time}</time>'
     flash:
       not_enrolled: 'Вы не записаны на это событие!'
       already_enrolled: 'Вы уже записались на это событие!'

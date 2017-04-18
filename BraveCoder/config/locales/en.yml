@@ -112,7 +112,8 @@ en:
       success: 'Event %{event} was added to the %{category}!'
   enrollments:
     common:
-      enrolled_ago: 'Enrolled %{time} ago'
+      enrolled_ago:
+        html: 'Enrolled <time datetime="%{time}">%{time}</time>'
     flash:
       not_enrolled: 'You are not enrolled for this event!'
       already_enrolled: 'You are already enrolled for this event!'

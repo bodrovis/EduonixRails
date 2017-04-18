@@ -15,4 +15,7 @@
 //= require bootstrap/util
 //= require bootstrap/collapse
 //= require bootstrap/dropdown
+//= require moment
+//= require moment/ru
+//= require events
 //= require turbolinks
