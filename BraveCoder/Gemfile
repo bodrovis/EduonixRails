@@ -38,6 +38,7 @@ gem 'rails-i18n'
 
 gem 'momentjs-rails'
 
+gem "skylight"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
