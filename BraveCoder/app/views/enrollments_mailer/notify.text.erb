@@ -3,4 +3,4 @@ Hello, <%= @event.owner.name %>!
 A user named <%= @user.name %> has enrolled for your event
   <strong><%= @event.title %></strong>!
 
-See all enrollments here: <%= category_event_url(@event.category, @event) %>
+See all enrollments here: <%= category_event_url(@event.category, @event, locale: :en) %>

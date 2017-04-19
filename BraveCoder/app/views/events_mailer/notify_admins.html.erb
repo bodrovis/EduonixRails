@@ -4,4 +4,4 @@
   was created at <%= @event.created_at %>!</p>
 
 <p><%= link_to 'See the event',
-               category_event_url(@event.category, @event) %></p>
+               category_event_url(@event.category, @event, locale: :en) %></p>

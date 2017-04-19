@@ -4,4 +4,4 @@
   <strong><%= @event.title %></strong>!</p>
 
 <p><%= link_to 'See all enrollments here',
-               category_event_url(@event.category, @event) %></p>
+               category_event_url(@event.category, @event, locale: :en) %></p>

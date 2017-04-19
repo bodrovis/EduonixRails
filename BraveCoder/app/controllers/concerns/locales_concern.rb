@@ -2,7 +2,7 @@ module LocalesConcern
   extend ActiveSupport::Concern
 
   included do
-    PATH_WITH_LOCALE_REGEXP = %r{\A\/((?:#{I18n.available_locales.join('|')})\/|)}
+    PATH_WITH_LOCALE_REGEXP = %r{\A\/((?:#{I18n.available_locales.join('|')})\/?|)}
     before_action :set_locale
     before_action :return_back
 
