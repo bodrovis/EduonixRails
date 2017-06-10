@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>BraveCoder</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<%= yield :menu %>
+
+<div class="container">
+  <div class="mt-1">
+    <h1><%= yield :page_title %></h1>
+  </div>
+  <%= yield %>
+</div>
+
+<%= render 'shared/footer' %>
+</body>
+</html>
